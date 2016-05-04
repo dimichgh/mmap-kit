@@ -4,7 +4,7 @@
   "description": "memory mapped kit",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js | tap-min",
+    "test": "tape test/*.js",
     "cover": "istanbul cover tape -- test/*.js",
     "lint": "jshint -c .jshintrc lib/"
   },
