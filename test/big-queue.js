@@ -227,7 +227,7 @@ Test(__filename, function (t) {
                             next();
                         });
                     }, function onComplete(err) {
-                        err && console.log(err); // can try to read deleted element
+                        err && console.log('conflict while iterating: ', err.message); // can try to read deleted element
                         console.log("[" + count + "] " + sb);
                         next();
                     });
