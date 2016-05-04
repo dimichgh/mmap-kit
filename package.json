@@ -1,7 +1,7 @@
 {
   "name": "mmap-kit",
   "version": "1.0.0",
-  "description": "memory mapped file",
+  "description": "memory mapped kit",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
@@ -11,7 +11,10 @@
   "keywords": [
     "mmap",
     "memory",
-    "map"
+    "map",
+    "queue",
+    "big-queue",
+    "array"
   ],
   "author": "dimichsdg@yahoo.com",
   "license": "ISC",
