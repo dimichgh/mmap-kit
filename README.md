@@ -10,7 +10,7 @@ npm install mmap-kit
 
 ### Limitations
 * There is no inter-process synchronization, hence one should use it in a form of one way socket communication, which is a single producer always appends, a single consumer should only remove (shift or dequeue) and multiple readers can explore the array or queue in a read-only mode.
-* Uses mmap.js which has no support for Windows
+* Uses mmap.js which has no support for Windows (PR pending)
 
 ### Usage
 
