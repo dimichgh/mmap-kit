@@ -124,6 +124,9 @@ Extends Buffer to provide auto positioning when reading/writing data from/to the
 
 Provides a high-level API for managing memory-mapped pages in a form of an array.
 
+Architecture:
+![Big Array](https://raw.githubusercontent.com/dimichgh/mmap-kit/master/docs/images/big-array-structure.jpg)
+
 ##### Create array
 ```javascript
 var BigArray = require('../lib/big-array').BigArray;
