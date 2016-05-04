@@ -184,7 +184,7 @@ bigArray.setAutoSync(false);
 
 #### Big Queue
 
-Provides a high-level API for managing memory-mapped pages in a form of a queue.
+Provides a high-level API for managing memory-mapped pages in a form of a queue. It is based on BigArray.
 
 ##### Create queue
 ```javascript
