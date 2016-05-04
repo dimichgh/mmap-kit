@@ -4,7 +4,7 @@
   "description": "memory mapped kit",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js | tap-min",
+    "test": "tape test/*.js | tnyan",
     "cover": "istanbul cover tape -- test/*.js",
     "lint": "jshint -c .jshintrc lib/"
   },
@@ -29,7 +29,7 @@
   "devDependencies": {
     "istanbul": "^0.4.3",
     "jshint": "^2.9.1",
-    "tap-min": "^1.1.0",
+    "tap-nyan": "0.0.2",
     "tape": "^4.5.1"
   }
 }
