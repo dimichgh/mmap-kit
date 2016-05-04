@@ -78,6 +78,48 @@ mappedPageFactory.deleteAllPages(function (err) {
 * releaseCachedPages() - release all cached pages.
 * releaseCachedPage(pageIndex: Number) - release a page at pageIndex.
 
+#### ByteBuffer
+
+Extends Buffer to provide auto positioning when reading/writing data from/to the buffer.
+
+##### API
+
+* extend(Buffer) - extends existing buffer with auto-positioning API
+
+###### Extended API
+* getUInt8 - read and move offset 1 byte forward
+* getUInt16LE - read and move offset 2 bytes forward
+* getUInt16BE - read and move offset 2 bytes forward
+* getUInt32LE - read and move offset 4 bytes forward
+* getUInt32BE - read and move offset 4 bytes forward
+* getInt8 - read and move offset 1 byte forward
+* getInt16LE - read and move offset 2 bytes forward
+* getInt16BE - read and move offset 2 bytes forward
+* getInt32LE - read and move offset 4 bytes forward
+* getInt32BE - read and move offset 4 bytes forward
+* getFloatLE - read and move offset 4 bytes forward
+* getFloatBE - read and move offset 4 bytes forward
+* getDoubleLE - read and move offset 8 bytes forward
+* getDoubleBE - read and move offset 8 bytes forward
+* __getBigLong__ - read 64 bit Bignum number and move offset 8 bytes forward
+* __getBigInt__ - read 32 bit Bignum number and move offset 4 bytes forward
+* putUInt8 - write and move offeset 1 byte forward,
+* putUInt16LE - write and move offeset 2 bytes forward,
+* putUInt16BE - write and move offeset 2 bytes forward,
+* putUInt32LE - write and move offeset 4 bytes forward,
+* putUInt32BE - write and move offeset 4 bytes forward,
+* putInt8 - write and move offeset 1 byte forward,
+* putInt16LE - write and move offeset 2 bytes forward,
+* putInt16BE - write and move offeset 2 bytes forward,
+* putInt32LE - write and move offeset 4 bytes forward,
+* putInt32BE - write and move offeset 4 bytes forward,
+* putFloatLE - write and move offeset 4 bytes forward,
+* putFloatBE - write and move offeset 4 bytes forward,
+* putDoubleLE - write and move offeset 8 bytes forward,
+* putDoubleBE - write and move offeset 8 bytes forward
+* __putBigLong__ - write 64 bit Bignum number and move offset 8 bytes forward
+* __putBigInt__ - write 32 bit Bignum number and move offset 4 bytes forward
+
 #### Big Array
 
 Provides a high-level API for managing memory-mapped pages in a form of an array.
