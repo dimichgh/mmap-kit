@@ -13,6 +13,7 @@ var BigArray = require('../lib/big-array').BigArray;
 var BigQueue = require('../lib/big-queue').BigQueue;
 var Long = require('../lib/big-array').Long;
 var Utils = require('./fixtures/utils');
+var debug = require('debug')('mmap-kit/big-queue/test');
 
 var testDir = Path.resolve(__dirname, '.tmp', 'bigqueue/unit');
 
@@ -256,7 +257,7 @@ Test(__filename, function (t) {
                 var curr = parseInt(str);
                 t.equal(sitem + 1, curr);
                 sitem = curr;
-                console.log('subscriber item: %s, queue size: %d', curr, bigQueue.size());
+                debug('subscriber item: %s, queue size: %d', curr, bigQueue.size());
                 return setImmediate(subscriber.bind(null, done));
             }
             if (sitem < N - 1) {
@@ -275,7 +276,7 @@ Test(__filename, function (t) {
                     if (msg === 'online') {
                         return next();
                     }
-                    console.log(msg);
+                    debug(msg);
                 });
             },
             function startIter(next) {
@@ -285,7 +286,7 @@ Test(__filename, function (t) {
                     if (msg === 'online') {
                         return next();
                     }
-                    console.log(msg);
+                    debug(msg);
                 });
 
             }
@@ -366,7 +367,7 @@ Test(__filename, function (t) {
 
                     return next();
                 }
-                console.log(msg);
+                debug(msg);
             });
 
             publishers.push(publisher);
