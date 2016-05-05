@@ -6,6 +6,7 @@
   "scripts": {
     "test": "tape test/*.js",
     "test-min": "tape test/*.js | tap-min",
+    "test-pessimist": "tape test/*.js | tap-pessimist",
     "cover": "istanbul cover tape -- test/*.js",
     "lint": "jshint -c .jshintrc lib/"
   },
