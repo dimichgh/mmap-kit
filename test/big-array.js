@@ -23,7 +23,7 @@ Test(__filename, function (t) {
     });
 
     t.test('simpleTest', function (t) {
-        t.timeoutAfter(5000);
+        t.timeoutAfter(10000);
 
 	    var bigArray = new BigArray(testDir, 'simple_test');
 
@@ -84,7 +84,7 @@ Test(__filename, function (t) {
 	});
 
     t.test('persistence', function (t) {
-        t.timeoutAfter(5000);
+        t.timeoutAfter(10000);
 
         var st;
         Async.series([
@@ -351,7 +351,7 @@ Test(__filename, function (t) {
     });
 
     t.test('loopThroughMax', function (t) {
-        t.timeoutAfter(5000);
+        t.timeoutAfter(10000);
         var bigArray = new BigArray({
             arrayDir: testDir,
             arrayName: 'loopThroughMax',
@@ -430,7 +430,7 @@ Test(__filename, function (t) {
     });
 
     t.test('loopThroughDataMax', function (t) {
-        t.timeoutAfter(5000);
+        t.timeoutAfter(10000);
         var bigArray = new BigArray({
             arrayDir: testDir,
             arrayName: 'loopThroughDataMax',
@@ -561,7 +561,7 @@ Test(__filename, function (t) {
     });
 
     t.test('autoBacklog', function (t) {
-        t.timeoutAfter(5000);
+        t.timeoutAfter(10000);
         var bigArray = new BigArray({
             arrayDir: testDir,
             arrayName: 'autoBacklog',

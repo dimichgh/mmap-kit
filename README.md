@@ -1,5 +1,8 @@
 # mmap-kit
 ===========
+[![Build Status](https://travis-ci.org/dimichgh/mmap-file.svg?branch=master)](https://travis-ci.org/dimichgh/mmap-file) [![NPM](https://img.shields.io/npm/v/mmap-kit.svg)](https://www.npmjs.com/package/mmap-kit)
+[![Downloads](https://img.shields.io/npm/dm/mmap-kit.svg)](http://npm-stat.com/charts.html?package=mmap-kit)
+
 The module provides a higher level API to mmap functionality in a form of mmap page and infinite array and queue (limited by disk space) based on mmap page.
 Most functionality was borrowed from [java bigqueue](https://github.com/bulldog2011/bigqueue)
 
