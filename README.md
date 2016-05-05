@@ -16,7 +16,7 @@ npm install mmap-kit
 
 #### Page API
 
-This is a still low-level API for manipulating memory-mapped pages
+This is a still low-level API for manipulating memory-mapped pages.
 
 ##### Writing to a page
 ```javascript

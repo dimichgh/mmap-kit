@@ -4,6 +4,13 @@ var Test = require('tape');
 var Bignum = require('bignum');
 
 var ByteBuffer = require('../lib/byte-buffer');
+function toArray(buffer) {
+    var arr = [];
+    for (var i = 0; i < buffer.length; i++) {
+        arr[i] = buffer[i];
+    }
+    return arr;
+}
 
 Test(__filename, function (t) {
     var buffer = new Buffer(1 + 4 + 8);
@@ -18,16 +25,16 @@ Test(__filename, function (t) {
 
         wbuffer.putUInt8(1);
         t.deepEqual([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            new Uint32Array(wbuffer), 'should have 1 byte');
+            toArray(wbuffer), 'should have 1 byte');
         t.equal(1, wbuffer.position, 'should change offset to 1');
         wbuffer.putBigInt(Bignum(0x01020304));
         t.equal(5, wbuffer.position, 'should change offset to 5');
         t.deepEqual([1, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-            new Uint32Array(wbuffer), 'should put big int');
+            toArray(wbuffer), 'should put big int');
         wbuffer.putBigLong(Bignum('05060708090a0b0c', 16));
         t.equal(13, wbuffer.position, 'should change offset to 13');
         t.deepEqual([1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0xA, 0xB, 0xC],
-            new Uint32Array(wbuffer), 'should put big long');
+            toArray(wbuffer), 'should put big long');
 
         t.end();
     });
