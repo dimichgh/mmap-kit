@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/dimichgh/mmap-file.svg?branch=master)](https://travis-ci.org/dimichgh/mmap-file) [![NPM](https://img.shields.io/npm/v/mmap-kit.svg)](https://www.npmjs.com/package/mmap-kit)
 [![Downloads](https://img.shields.io/npm/dm/mmap-kit.svg)](http://npm-stat.com/charts.html?package=mmap-kit)
 
-The module provides a higher level API to mmap functionality in a form of mmap page and infinite array and queue (limited by disk space) based on mmap page.
-Most functionality was borrowed from [java bigqueue](https://github.com/bulldog2011/bigqueue)
+The module provides a higher level API of memory mapped functionality in a form of page, big array and big queue (limited by disk space) based on mmap page.
+Most functionality and tests were borrowed from [java bigqueue](https://github.com/bulldog2011/bigqueue)
 
 ### Install
 ```bash
@@ -128,7 +128,7 @@ Extends Buffer to provide auto positioning when reading/writing data from/to the
 Provides a high-level API for managing memory-mapped pages in a form of an array.
 
 Architecture:
-![Big Array](https://raw.githubusercontent.com/dimichgh/mmap-kit/master/docs/images/big-array-structure.jpg)
+![Big Array](https://raw.githubusercontent.com/dimichgh/mmap-kit/master/docs/images/big-array-structure.png)
 
 ##### Create array
 ```javascript
