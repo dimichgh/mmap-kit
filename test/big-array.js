@@ -713,6 +713,45 @@ Test(__filename, function (t) {
         });
     });
 
+    t.test('watching', function (t) {
+        t.timeoutAfter(10000);
+
+        var bigArrayA = new BigArray(testDir, 'watch');
+        var bigArrayB = new BigArray(testDir, 'watch');
+
+        var st;
+        var count = 0;
+
+        bigArrayB.watch(function onchange() {
+            console.log('time to detect: ', Date.now() - st, arguments);
+            t.equal(bigArrayB.shift().toString(), 'hello');
+            count++;
+            if (count === 3) {
+                bigArrayB.unwatch(onchange);
+                // flush more
+                setTimeout(function wait() {
+                    bigArrayA.append('hello');
+                    bigArrayA.flush();
+                }, 200);
+                setTimeout(function wait() {
+                    t.end();
+                }, 500);
+            }
+            if (count > 4) {
+                t.fail('should have stopped watching');
+            }
+        });
+
+        Async.timesSeries(3, function iter(n, next) {
+            setImmediate(function () {
+                st = Date.now();
+                bigArrayA.append('hello');
+                bigArrayA.flush();
+                next();
+            });
+        });
+	});
+
     t.test('after', function (t) {
         rm('-rf', testDir);
         t.end();
