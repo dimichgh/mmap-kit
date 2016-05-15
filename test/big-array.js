@@ -724,7 +724,9 @@ Test(__filename, function (t) {
 
         bigArrayB.watch(function onchange() {
             console.log('time to detect: ', Date.now() - st, arguments);
-            t.equal(bigArrayB.shift().toString(), 'hello');
+            if (count < 3) {
+                t.equal(bigArrayB.shift().toString(), 'hello');
+            }
             count++;
             if (count === 3) {
                 bigArrayB.unwatch(onchange);
