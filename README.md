@@ -159,6 +159,14 @@ bigArray.setAutoSync(false);
 ```
 
 ##### Array API
+* BigArray(options) - constructor
+    * options:
+        * arrayDir: String - directory for array data store
+        * arrayName: String - the name of the array, will be appended as last part of the array directory
+        * dataPageSize: Number - the back data file size per page in bytes, see minimum allowed, default 32Mb
+        * maxDataSize: Number|Bignum - maxDataSize in Mb, the max back data file size, see minimum allowed, default 32Mb
+        * backlog: fn(ByteBuffer) - a function to be called when the array space is maxed out and the oldest entries will be auto-backlogged to free up the space.
+        * backlogBatchSize: Number - a number of entries to auto backlog when max size of array is reached
 * append(Buffer) - append buffer data to the end of the array.
 * close() - unload the array from memory.
 * deletePagesOutsideIndexRange(headIndex: Number|Bignum, tailIndex: Number|Bignum, fn(err: Error)) - delete pages outside given range.
