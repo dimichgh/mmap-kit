@@ -9,8 +9,8 @@ var rm = require('shelljs').rm;
 var Async = require('async');
 var Utils = require('./fixtures/utils');
 
-var Page = require('../lib/page').Page;
-var PageFactory = require('../lib/page-factory').PageFactory;
+var Page = require('..').Page;
+var PageFactory = require('..').PageFactory;
 var fileName = 'test-page.dat';
 
 var testDir = Path.resolve(__dirname, '.tmp', 'page-factory');

@@ -8,7 +8,7 @@ var Async = require('async');
 var Bignum = require('bignum');
 var mkdir = require('shelljs').mkdir;
 var rm = require('shelljs').rm;
-var BigArray = require('../lib/big-array').BigArray;
+var BigArray = require('..').BigArray;
 var Long = require('../lib/big-array').Long;
 var Utils = require('./fixtures/utils');
 
@@ -353,8 +353,8 @@ Test(__filename, function (t) {
     t.test('loopThroughMax', function (t) {
         t.timeoutAfter(10000);
         var bigArray = new BigArray({
-            arrayDir: testDir,
-            arrayName: 'loopThroughMax',
+            dir: testDir,
+            name: 'loopThroughMax',
             MAX_INDEX: 20
         });
 
@@ -432,8 +432,8 @@ Test(__filename, function (t) {
     t.test('loopThroughDataMax', function (t) {
         t.timeoutAfter(10000);
         var bigArray = new BigArray({
-            arrayDir: testDir,
-            arrayName: 'loopThroughDataMax',
+            dir: testDir,
+            name: 'loopThroughDataMax',
             MAX_INDEX: 40, // max 33 index pages
             overrideMinDataPageSize: 128 * 1024,
             dataPageSize: 128 * 1024,
@@ -563,8 +563,8 @@ Test(__filename, function (t) {
     t.test('autoBacklog', function (t) {
         t.timeoutAfter(10000);
         var bigArray = new BigArray({
-            arrayDir: testDir,
-            arrayName: 'autoBacklog',
+            dir: testDir,
+            name: 'autoBacklog',
             MAX_INDEX: 40, // max 33 index pages
             overrideMinDataPageSize: 128 * 1024,
             maxDataSize: 1, // 1Mb

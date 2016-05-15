@@ -23,7 +23,7 @@ This is a still low-level API for manipulating memory-mapped pages.
 
 ##### Writing to a page
 ```javascript
-var PageFactory = require('../lib/page-factory').PageFactory;
+var PageFactory = require('mmap-kit').PageFactory;
 mappedPageFactory = new PageFactory(1024 * 1024, './test');
 var mappedPage = mappedPageFactory.acquirePage(0);
 var buffer = mappedPage.getLocal(0);
@@ -35,7 +35,7 @@ mappedPage.close(); // gc
 
 ##### Reading a page
 ```javascript
-var PageFactory = require('../lib/page-factory').PageFactory;
+var PageFactory = require('mmap-kit').PageFactory;
 mappedPageFactory = new PageFactory(1024 * 1024, './test');
 var mappedPage = mappedPageFactory.acquirePage(0);
 var buffer = mappedPage.getLocal(0);
@@ -85,6 +85,36 @@ mappedPageFactory.deleteAllPages(function (err) {
 
 Extends Buffer to provide auto positioning when reading/writing data from/to the buffer.
 
+#### Usage
+
+##### Create byte buffer
+```javascript
+var buffer = require('mmap-kit').ByteBuffer.create(16);
+```
+
+##### Extend existing buffer
+```javascript
+require('mmap-kit').ByteBuffer.extend(new Buffer(16));
+```
+
+##### Writing to buffer
+```javascript
+buffer.putBigInt(Bignum(0x01020304));
+buffer.putBigLong(Bignum('1122334455667788', 16));
+// using existing API
+buffer.putUInt16LE(20);
+console.log('current position:', buffer.position);
+```
+
+##### Reading from buffer
+```javascript
+// set position the the start if reading above buffer
+buffer.position = 0;
+console.log('big int: %s', buffer.getBigInt());
+console.log('big long: %s', buffer.getBigLong());
+console.log('unsigned int: %s', buffer.getUInt16LE());
+```
+
 ##### API
 
 * extend(Buffer) - extends existing buffer with auto-positioning API
@@ -132,7 +162,7 @@ Architecture:
 
 ##### Create array
 ```javascript
-var BigArray = require('../lib/big-array').BigArray;
+var BigArray = require('mmap-kit').BigArray;
 var bigArray = new BigArray('./tmp', 'test');
 ```
 
@@ -161,8 +191,8 @@ bigArray.setAutoSync(false);
 ##### Array API
 * BigArray(options) - constructor
     * options:
-        * arrayDir: String - directory for array data store
-        * arrayName: String - the name of the array, will be appended as last part of the array directory
+        * dir: String - directory for array data store
+        * name: String - the name of the array, will be appended as last part of the array directory
         * dataPageSize: Number - the back data file size per page in bytes, see minimum allowed, default 32Mb
         * maxDataSize: Number|Bignum - maxDataSize in Mb, the max back data file size, see minimum allowed, default 32Mb
         * backlog: fn(ByteBuffer) - a function to be called when the array space is maxed out and the oldest entries will be auto-backlogged to free up the space.
@@ -199,8 +229,8 @@ Provides a high-level API for managing memory-mapped pages in a form of a queue.
 
 ##### Create queue
 ```javascript
+var BigQueue = require('mmap-kit').BigQueue;
 var bigQueue = new BigQueue('./.tmp', 'test');
-var BigQueue = require('../lib/big-queue').BigQueue;
 ```
 
 ##### Add to queue
@@ -240,13 +270,31 @@ bigQueue.eachSync(function iter(el, i, next) {
 ##### Get from queue
 ```javascript
 console.log(bigQueue.size()); // out: 2
-console.log(bigQueue.deenqueue()); // out: hello
+console.log(bigQueue.dequeue()); // out: hello
 console.log(bigQueue.size()); // out: 1
-console.log(bigQueue.deenqueue()); // out: world
+console.log(bigQueue.dequeue()); // out: world
 ```
 
+##### API
+* BigQueue(options) - constructor
+    * options:
+        * dir: String - directory for array data store
+        * name: String - the name of the array, will be appended as last part of the array directory
+        * dataPageSize: Number - the back data file size per page in bytes, see minimum allowed, default 32Mb
+        * maxDataSize: Number|Bignum - maxDataSize in Mb, the max back data file size, see minimum allowed, default 32Mb
+        * backlog: fn(ByteBuffer) - a function to be called when the array space is maxed out and the oldest entries will be auto-backlogged to free up the space.
+        * backlogBatchSize: Number - a number of entries to auto backlog when max size of array is reached
+* enqueue(Buffer) - put buffer to the end of queue
+* dequeue(): ByteBuffer - get element from head of the queue and removes it from the queue
+* peek(): ByteBuffer - get element from head of the queue
+* each(fn(element: ByteBuffer, index, next)) - iterate through all queue elements asynchronously
+* eachSync(fn(element: ByteBuffer, index)) - iterate through all queue elements in sync mode
+* close() - close and gc queue from the memory
+* flush() - flush the queue
+* size(): Bignum - get size of the queue
+* removeAll
 
 ### To do:
 * use/check watchFile to detect changes
-* PR to mmap.js to support windows using https://github.com/ozra/mmap-io
+* PR to mmap.js to support windows, currently blocked by https://github.com/indutny/mmap.js/issues/3
 # mmap-kit

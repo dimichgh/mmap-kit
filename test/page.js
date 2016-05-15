@@ -10,7 +10,7 @@ var mkdir = require('shelljs').mkdir;
 var rm = require('shelljs').rm;
 var Async = require('async');
 
-var createByteBuffer = require('../lib/byte-buffer').createByteBuffer;
+var createByteBuffer = require('../lib/byte-buffer').create;
 var Page = require('../lib/page').Page;
 var PageFactory = require('../lib/page-factory').PageFactory;
 
