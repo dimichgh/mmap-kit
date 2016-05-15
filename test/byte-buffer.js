@@ -3,7 +3,7 @@
 var Test = require('tape');
 var Bignum = require('bignum');
 
-var ByteBuffer = require('../lib/byte-buffer');
+var ByteBuffer = require('..').ByteBuffer;
 function toArray(buffer) {
     var arr = [];
     for (var i = 0; i < buffer.length; i++) {

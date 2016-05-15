@@ -9,8 +9,8 @@ var Async = require('async');
 var Bignum = require('bignum');
 var mkdir = require('shelljs').mkdir;
 var rm = require('shelljs').rm;
-var BigArray = require('../lib/big-array').BigArray;
-var BigQueue = require('../lib/big-queue').BigQueue;
+var BigArray = require('..').BigArray;
+var BigQueue = require('..').BigQueue;
 var Long = require('../lib/big-array').Long;
 var Utils = require('./fixtures/utils');
 var debug = require('debug')('mmap-kit/big-queue/test');
@@ -121,7 +121,11 @@ Test(__filename, function (t) {
     });
 
     t.test('testApplyForEachDoNotChangeTheQueueSync', function (t) {
-        var bigQueue = new BigQueue(testDir, 'testApplyForEachDoNotChangeTheQueueSync', BigArray.MINIMUM_DATA_PAGE_SIZE);
+        var bigQueue = new BigQueue({
+            dir: testDir,
+            name: 'testApplyForEachDoNotChangeTheQueueSync',
+            dataPageSize: BigArray.MINIMUM_DATA_PAGE_SIZE
+        });
         bigQueue.enqueue(new Buffer('1'));
         bigQueue.enqueue(new Buffer('2'));
         bigQueue.enqueue(new Buffer('3'));

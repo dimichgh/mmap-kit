@@ -5,7 +5,7 @@ var MMap = require('mmap.js');
 var Test = require('tape');
 var Bignum = require('bignum');
 
-var Page = require('../lib/page').Page;
+var Page = require('..').Page;
 var fileName = 'test-page.dat';
 
 Test(__filename, function (t) {
