@@ -1,7 +1,7 @@
 {
   "name": "mmap-kit",
   "version": "1.0.0",
-  "description": "memory mapped kit",
+  "description": "Memory mapped kit provides a high level API for managing mmap data in form of array or queue",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
@@ -23,7 +23,7 @@
     "url": "git://github.com/dimichgh/mmap-kit.git"
   },
   "author": "dimichsdg@yahoo.com",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "async": "^2.0.0-rc.3",
     "bignum": "^0.11.0",
