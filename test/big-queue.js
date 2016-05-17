@@ -149,7 +149,7 @@ Test(__filename, function (t) {
     });
 
     t.test('testApplyForEachDoNotChangeTheQueueAsync', function (t) {
-        t.timeoutAfter(1000);
+        t.timeoutAfter(10000);
 
         var bigQueue = new BigQueue(testDir, 'testApplyForEachDoNotChangeTheQueueAsync', BigArray.MINIMUM_DATA_PAGE_SIZE);
         bigQueue.enqueue(new Buffer('1'));
@@ -204,7 +204,7 @@ Test(__filename, function (t) {
                 var bytes = bigQueue.dequeue();
                 var str = bytes.toString();
                 var curr = parseInt(str);
-                t.equal(sitem + 1, curr);
+                t.equal(sitem + 1, curr, 'subscriber check');
                 sitem = curr;
             }
             if (count++ < N) {
@@ -327,7 +327,7 @@ Test(__filename, function (t) {
     });
 
     t.test('concurrentAdd', function (t) {
-        t.timeoutAfter(60000);
+        t.timeoutAfter(120000);
         var bigQueues = [];
 
         var events = [];

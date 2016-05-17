@@ -18,6 +18,10 @@
     "big-queue",
     "array"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dimichgh/mmap-kit.git"
+  },
   "author": "dimichsdg@yahoo.com",
   "license": "ISC",
   "dependencies": {

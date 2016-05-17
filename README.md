@@ -200,6 +200,8 @@ bigArray.setAutoSync(false);
 * append(Buffer) - append buffer data to the end of the array.
 * close() - unload the array from memory.
 * deletePagesOutsideIndexRange(headIndex: Number|Bignum, tailIndex: Number|Bignum, fn(err: Error)) - delete pages outside given range.
+* each(fn(element: ByteBuffer, index, next)) - iterate through all array elements asynchronously
+* eachSync(fn(element: ByteBuffer, index)) - iterate through all array elements in sync mode
 * flush() - flush array to disk.
 * gc() - force gc to remove unused files on the disk.
 * get(arrayIndex): ByteBuffer - get element at the given index.
