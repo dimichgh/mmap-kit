@@ -39,5 +39,8 @@
     "tap-nyan": "0.0.2",
     "tap-pessimist": "^1.0.1",
     "tape": "^4.5.1"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
   }
 }
