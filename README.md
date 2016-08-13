@@ -151,6 +151,8 @@ bigArray.setAutoSync(false);
 * isEmpty() - check if array is empty.
 * isFull() - check if array is full.
 * isValidIndex(arrayIndex) - checks if given array index is valid.
+* watch(listener:fn()) - starts watching for changes using index file
+* unwatch(listener:fn()) - stops watching for changes using index file
 
 #### Big Queue
 
@@ -214,14 +216,16 @@ console.log(bigQueue.dequeue()); // out: world
         * backlog: fn(ByteBuffer) - a function to be called when the array space is maxed out and the oldest entries will be auto-backlogged to free up the space.
         * backlogBatchSize: Number - a number of entries to auto backlog when max size of array is reached
 * enqueue(Buffer) - put buffer to the end of queue
-* dequeue(): ByteBuffer - get element from head of the queue and removes it from the queue
+* dequeue(): ByteBuffer - get element at the head of the queue and remove it from the queue
 * peek(): ByteBuffer - get element from head of the queue
 * each(fn(element: ByteBuffer, index, next)) - iterate through all queue elements asynchronously
 * eachSync(fn(element: ByteBuffer, index)) - iterate through all queue elements in sync mode
 * close() - close and gc queue from the memory
 * flush() - flush the queue
 * size(): Bignum - get size of the queue
-* removeAll
+* removeAll() - removes all elements
+* watch(listener:fn()) - starts watching for changes using index file
+* unwatch(listener:fn()) - stops watching for changes using index file
 
 #### ByteBuffer
 
@@ -296,6 +300,5 @@ console.log('unsigned int: %s', buffer.getUInt16LE());
 * __putBigInt__ - write 32 bit Bignum number and move offset 4 bytes forward
 
 ### To do:
-* use/check watchFile to detect changes
 * PR to mmap.js to support windows, currently blocked by https://github.com/indutny/mmap.js/issues/3
 # mmap-kit
