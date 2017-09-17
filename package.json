@@ -26,17 +26,17 @@
   "license": "Apache-2.0",
   "dependencies": {
     "async": "^2.0.0-rc.3",
-    "bignum": "^0.11.0",
-    "debug": "^2.2.0",
+    "bignum": "^0.12.5",
+    "debug": "^3.0.1",
     "lru-cache": "^4.0.1",
     "mmap.js": "^1.0.1",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.7.8"
   },
   "devDependencies": {
     "istanbul": "^0.4.3",
     "jshint": "^2.9.1",
     "tap-min": "^1.1.0",
-    "tap-nyan": "0.0.2",
+    "tap-nyan": "1.1.0",
     "tap-pessimist": "^1.0.1",
     "tape": "^4.5.1"
   },
