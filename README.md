@@ -1,4 +1,6 @@
 # mmap-kit
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/dimichgh/mmap-kit.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/dimichgh/mmap-kit.svg?branch=master)](https://travis-ci.org/dimichgh/mmap-kit) [![NPM](https://img.shields.io/npm/v/mmap-kit.svg)](https://www.npmjs.com/package/mmap-kit)
 [![Downloads](https://img.shields.io/npm/dm/mmap-kit.svg)](http://npm-stat.com/charts.html?package=mmap-kit)
 
